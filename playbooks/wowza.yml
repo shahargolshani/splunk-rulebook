@@ -3,6 +3,6 @@
   hosts: all
   gather_facts: false
   tasks:
-    - debug:
+    - name: Notify status
+      ansible.builtin.debug:
         msg: "All is up and well"
-
