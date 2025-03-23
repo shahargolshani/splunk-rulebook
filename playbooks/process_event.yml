@@ -1,0 +1,24 @@
+---
+- name: Process Splunk webhook event
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Print event metadata
+      debug:
+        msg:
+          - "SID: {{ event.payload.sid }}"
+          - "Search Name: {{ event.payload.search_name }}"
+          - "Owner: {{ event.payload.owner }}"
+          - "App: {{ event.payload.app }}"
+          - "Results Web Link: {{ event.payload.results_web_link }}"
+          - "Results REST Link: {{ event.payload.results_rest_link }}"
+
+    - name: Handle plaintext results
+      debug:
+        msg: "Plaintext results: {{ event.payload.results }}"
+      when: event.payload.results is defined and event.payload.results | type_debug == 'list'
+
+    - name: Handle compressed results
+      debug:
+        msg: "Compressed results (base64_gzip): {{ event.payload.results.base64_gzip }}"
+      when: event.payload.results is defined and event.payload.results | type_debug == 'dict' and 'base64_gzip' in event.payload.results
