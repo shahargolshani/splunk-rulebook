@@ -1,0 +1,8 @@
+---
+- name: Process Splunk webhook event
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Print event metadata
+      debug:
+        msg: "Plaintext message from rulebook: {{ message_content }}"

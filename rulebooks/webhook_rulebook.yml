@@ -17,6 +17,5 @@
         run_job_template:
           name: splunk-event
           organization: Default
-          job_args:
-            extra_vars:
-              event: "{{ event }}"
+          extra_vars:
+            message_content: "{{ event.payload.message }}"
