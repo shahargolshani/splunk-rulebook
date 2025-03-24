@@ -15,7 +15,8 @@
       ## Define the action we should take when the condition is met
       action:
         run_job_template:
-          name: splunk-message-helper
+          name: splunk_eda_ta
           organization: Default
-          extra_vars:
-            message_content: "{{ event.payload.message }}"
+          job_args:
+            extra_vars:
+              rulebook_action_var: "Use this to pass vars from rulebook to playbook"

@@ -5,4 +5,8 @@
   tasks:
     - name: Print event metadata
       debug:
-        msg: "Plaintext message from rulebook: {{ message_content }}"
+        msg: "Payload from the rulebook: {{ example_var }}"
+    
+    - name: Print event payload
+      debug:
+        msg: "Payload from the rulebook: {{ ansible_eda.event.payload }}"
