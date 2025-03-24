@@ -15,7 +15,8 @@
       ## Define the action we should take when the condition is met
       action:
         run_job_template:
-          organization: Default
           name: splunk-event
+          organization: Default
           job_args:
-            event: "{{ event }}"
+            extra_vars:
+              event: "{{ event }}"
