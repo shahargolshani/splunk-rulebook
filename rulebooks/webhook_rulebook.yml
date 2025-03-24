@@ -17,5 +17,5 @@
         run_job_template:
           organization: Default
           name: splunk-event
-          extra_vars:
+          job_args:
             event: "{{ event }}"
