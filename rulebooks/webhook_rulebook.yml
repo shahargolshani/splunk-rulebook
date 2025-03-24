@@ -14,7 +14,8 @@
          - event.payload.sid is defined
       ## Define the action we should take when the condition is met
       action:
-        run_playbook:
-          name: process_event.yml
+        run_job_template:
+          organization: Default
+          name: splunk-event
           extra_vars:
             event: "{{ event }}"
