@@ -1,0 +1,12 @@
+---
+- name: Process Splunk webhook event
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Print event metadata
+      debug:
+        msg: "Payload from the rulebook: {{ example_var }}"
+    
+    - name: Print event payload
+      debug:
+        msg: "Payload from the rulebook: {{ ansible_eda.event.payload }}"
