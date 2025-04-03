@@ -17,6 +17,7 @@
         run_job_template:
           name: splunk_eda_ta
           organization: Default
+          ## To pass job args to AAP EDA, check "Prompt on launch" checkbox in "Extra variables" line on the job template 
           job_args:
             extra_vars:
               rulebook_action_var: "Use this to pass vars from rulebook to playbook"
